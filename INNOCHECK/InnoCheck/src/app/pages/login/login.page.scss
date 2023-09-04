@@ -1,0 +1,44 @@
+ion-header {
+    ion-toolbar {
+      --background: #651d32; /* Color de la barra de encabezado */
+    }
+  }
+  
+  ion-content {
+    --background: #FFFFFF; /* Color de fondo del contenido */
+  }
+  
+  ion-button {
+    --background: #651d32; /* Color de fondo del botón */
+    color: #FFFFFF; /* Color de texto del botón */
+  }
+
+
+  /* login.page.scss */
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; /* Márgen superior */
+    margin-bottom: 30px; /* Márgen inferior */
+  }
+  
+  .logo img {
+    max-width: 215px; /* Ajusta el tamaño del logo según tus necesidades */
+  }
+  
+  .app-name {
+    font-size: 22px;
+    margin-top: 20px; /* Márgen superior para el nombre de la aplicación */
+    font-weight: bold;
+  }
+  
+  .app-developed {
+    font-size: 11px;
+    margin-top: 5px; /* Márgen superior para el texto de "Desarrollado por DITT" */
+    color: #666; /* Color opcional para el texto */
+  }
+  
+  
