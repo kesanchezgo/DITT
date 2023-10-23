@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/user-dashboard/user-dashboard.module').then( m => m.UserDashboardPageModule)
   },
   {
-    path: 'participant-registration',
+    path: 'register',
     loadChildren: () => import('./pages/participant-registration/participant-registration.module').then( m => m.ParticipantRegistrationPageModule)
   }
 ];

@@ -1,5 +1,6 @@
 package com.bezkoder.spring.security.postgresql.models;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,6 +32,29 @@ public class User {
   @NotBlank
   @Size(max = 120)
   private String password;
+
+  @Size(max = 50)
+  private String firstName;
+  
+  @Size(max = 50)
+  private String lastName;
+  
+  @Size(max = 50)
+  private String middleName;
+  
+  @Size(max = 10)
+  private String verificationCode;
+  
+  @Size(max = 120)
+  private String address;
+  
+  @Size(max = 20)
+  private String phone;
+  
+  private Date birthDate;
+  
+  @Size(max = 255)
+  private String photo;
 
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
