@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,10 +17,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.bezkoder.spring.security.postgresql.models.ERole;
 import com.bezkoder.spring.security.postgresql.models.Role;
@@ -51,6 +56,12 @@ public class AuthController {
 
   @Autowired
   JwtUtils jwtUtils;
+
+  @Value("${reniec.api.url}")
+    private String reniecApiUrl;
+      
+  @Value("${reniec.api.token}")
+    private String reniecApiToken; 
 
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -118,4 +129,22 @@ public class AuthController {
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
+
+ 
+  @GetMapping("/dni-verification")
+  public ResponseEntity<?> verifyDni(@RequestParam String dni) {
+    String apiUrl = reniecApiUrl + "/api/v1/dni/" + dni + "?token=" + reniecApiToken;
+
+    RestTemplate restTemplate = new RestTemplate();
+    ResponseEntity<Object> response = restTemplate.getForEntity(apiUrl, Object.class);
+
+    if (response.getStatusCode() == HttpStatus.OK) {
+        return ResponseEntity.ok(response.getBody());
+    } else {
+        return ResponseEntity.badRequest().body(new MessageResponse("Error: DNI not found in Reniec."));
+    }
+  }
+
+  
+
 }
