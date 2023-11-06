@@ -4,7 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+    //loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'attendance-control',
@@ -15,8 +16,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/device-control/device-control.module').then( m => m.DeviceControlPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    path: 'tabs',
+    //loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'user-dashboard',

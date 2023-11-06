@@ -1,9 +1,13 @@
-ion-header {
-    ion-toolbar {
-      --background: #651d32; /* Color de la barra de encabezado */
-    }
-  }
-  
+
+  .back-button {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    --border-radius: 100%;
+    width: 45px;
+    height: 45px;
+  }  
+
   ion-content {
     --background: #FFFFFF; /* Color de fondo del contenido */
   }
@@ -21,8 +25,8 @@ ion-header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px; /* Márgen superior */
-    margin-bottom: 30px; /* Márgen inferior */
+    margin-top: 150px; /* Márgen superior */
+    margin-bottom: 50px; /* Márgen inferior */
   }
   
   .logo img {
@@ -39,6 +43,29 @@ ion-header {
     font-size: 11px;
     margin-top: 5px; /* Márgen superior para el texto de "Desarrollado por DITT" */
     color: #666; /* Color opcional para el texto */
+  }
+
+  .rounded-input ion-input {
+    --border-radius: 55px; /* Ajusta el valor según tu preferencia */
+  }
+
+  .rounded-in {
+    --border-radius: 55px; /* Ajusta el valor según tu preferencia */
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; /* Márgen superior */
+  }
+
+  .password-recovery{
+    font-size: 11px;
+    margin-top: 5px; /* Márgen superior para el texto de "Desarrollado por DITT" */
+    color: #666;
+    text-align: center;
   }
   
   
