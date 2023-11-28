@@ -39,7 +39,12 @@ export class LoginPage {
     const alert = await this.alertController.create({
       header: 'Mensaje',
       message: message,
-      buttons: ['Aceptar']
+      buttons: [
+        {
+          text: 'Aceptar',
+          cssClass: 'success-btn', // Aplicar el estilo de color 'success'
+        }
+      ]
     });
   
     await alert.present();

@@ -21,41 +21,90 @@
     <ion-icon name="chevron-back-outline"></ion-icon>
   </ion-button>
 
-  <div class="logo-container">
-    <div class="logo">
-      <img src="assets/unsa_a.png" alt="Logo de la aplicación">
-    </div>
-    <div class="app-name">
-      INNOCHECK
-    </div>
-    <div class="app-developed">
-      Desarrollado por DITT
-    </div>
-  </div>
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-md="4" size-lg="2">
+        <div class="logo-container">
+          <div class="logo">
+            <img src="assets/inlab_c.png" alt="Logo de la aplicación">
+          </div>
+          <div class="app-name">
+            INLAB
+          </div>
+          
+          <div class="app-developed">
+            <span>Bienvenido al sistema </span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="ion-text-center">
+      <ion-col size="8" size-md="4" size-lg="2" offset="2">
+        <div class="form-container">
+          <form (ngSubmit)="login()">
+            <ion-item>
+              <!-- <ion-label position="floating">DNI</ion-label>
+              <ion-input type="text" [(ngModel)]="dni" name="dni" required></ion-input> -->
+              <ion-input label="DNI" labelPlacement="floating" type="text" [(ngModel)]="dni" name="dni" required></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <!-- <ion-label position="floating">Contraseña</ion-label>
+              <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input> -->
+              <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="password" name="password" required></ion-input>
+            </ion-item>
+            <br>
+            <ion-button expand="full" type="submit" shape="round" color="primary" >Ingresar</ion-button>
+          </form>
+          <br>
+          <!-- Enlace de recuperación de contraseña -->
+          <a class="password-recovery" fill="clear" (click)="recoverPassword()">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
+      </ion-col>
+    </ion-row>
+  
+    
+  </ion-grid>
 
-  <div class="form-container">
-    <form (ngSubmit)="login()">
-      <ion-item class="rounded-input">
-        <ion-label position="floating">DNI</ion-label>
-        <ion-input type="text" [(ngModel)]="dni" name="dni" required></ion-input>
-      </ion-item>
   
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-      </ion-item>
-      <br>
-      <ion-button expand="full" type="submit">Ingresar</ion-button>
-    </form>
-  
-    <!-- Enlace de recuperación de contraseña -->
-    <a class="password-recovery" fill="clear" (click)="recoverPassword()">
-      ¿Olvidaste tu contraseña?
-    </a>
-  </div>
   
 </ion-content>
 
+<!-- <div class="logo-container">
+  <div class="logo">
+    <img src="assets/inlab_c.png" alt="Logo de la aplicación">
+  </div>
+  <div class="app-name">
+    INLAB
+  </div>
+  
+  <div class="app-developed">
+    <span>Bienvenido al sistema </span>
+  </div>
+</div>
 
+<div class="form-container">
+  <form (ngSubmit)="login()">
+    <ion-item class="rounded-input">
+      <ion-label position="floating">DNI</ion-label>
+      <ion-input type="text" [(ngModel)]="dni" name="dni" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-button expand="full" type="submit">Ingresar</ion-button>
+  </form>
+
+  
+  <a class="password-recovery" fill="clear" (click)="recoverPassword()">
+    ¿Olvidaste tu contraseña?
+  </a>
+</div> -->
 
 

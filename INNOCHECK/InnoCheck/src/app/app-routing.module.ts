@@ -4,7 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    //loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -27,6 +30,18 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/participant-registration/participant-registration.module').then( m => m.ParticipantRegistrationPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'dni-scanner',
+    loadChildren: () => import('./pages/dni-scanner/dni-scanner.module').then( m => m.DniScannerPageModule)
+  },
+  {
+    path: 'dni-scanner-ocr',
+    loadChildren: () => import('./pages/dni-scanner-ocr/dni-scanner-ocr.module').then( m => m.DniScannerOcrPageModule)
   }
 ];
 @NgModule({
