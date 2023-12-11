@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { AlertController } from '@ionic/angular';
-
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -30,13 +30,21 @@ export class LoginPage {
   dni: string="";
   password: string="";
 
-  constructor(private authService: AuthenticationService, private router: Router, private alertController: AlertController) {}
+  constructor(private authService: AuthenticationService, 
+              private router: Router, 
+              private alertController: AlertController,
+              private navCtrl: NavController) {}
 
   async presentAlert(message: string) {
     const alert = await this.alertController.create({
       header: 'Mensaje',
       message: message,
-      buttons: ['Aceptar']
+      buttons: [
+        {
+          text: 'Aceptar',
+          cssClass: 'success-btn', // Aplicar el estilo de color 'success'
+        }
+      ]
     });
   
     await alert.present();
@@ -64,5 +72,15 @@ export class LoginPage {
       this.presentAlert('Por favor, ingrese DNI y contraseña.');
       // Puedes mostrar un mensaje de validación al usuario si es necesario
     }
+  }
+
+  // Función para ir atrás
+  goBack() {
+    this.navCtrl.back(); // Esta función regresa a la página anterior
+  }
+
+  // Función para recuperar la contraseña
+  recoverPassword() {
+    // Agrega aquí la lógica para la recuperación de contraseña, como enviar un correo o navegar a otra página.
   }
 }
