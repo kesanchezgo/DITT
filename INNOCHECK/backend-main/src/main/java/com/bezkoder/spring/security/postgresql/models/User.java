@@ -16,6 +16,7 @@ import jakarta.validation.constraints.Size;
           @UniqueConstraint(columnNames = "email") 
         })
 public class User {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -35,24 +36,24 @@ public class User {
 
   @Size(max = 50)
   private String firstName;
-  
+
   @Size(max = 50)
   private String lastName;
-  
+
   @Size(max = 50)
   private String middleName;
-  
+
   @Size(max = 10)
   private String verificationCode;
-  
+
   @Size(max = 120)
   private String address;
-  
+
   @Size(max = 20)
   private String phone;
-  
+
   private Date birthDate;
-  
+
   @Size(max = 255)
   private String photo;
 
@@ -108,4 +109,13 @@ public class User {
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
   }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
+
+  public String getPhoto() {
+    return photo;
+  }
 }
+
