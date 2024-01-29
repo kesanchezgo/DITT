@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ selectedSegment === 'project' ? 'Información del Proyecto' : 'Información del Grupo' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <ion-segment [(ngModel)]="selectedSegment">
+    <ion-segment-button value="project">
+      <ion-label>Proyecto</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="group">
+      <ion-label>Grupo</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-card class="info-card" *ngIf="selectedSegment === 'project'">
+    <ion-card-content>
+      <!-- Contenido del Proyecto -->
+      <ion-label><strong>Código del Proyecto:</strong></ion-label>
+      <ion-text>{{ proyecto.codigoProyecto }}</ion-text>
+      <ion-label><strong>Líder del Proyecto:</strong></ion-label>
+      <ion-text>{{ proyecto.nombreLider }}</ion-text>
+      <ion-label><strong>Nombre del Proyecto:</strong></ion-label>
+      <ion-text>{{ proyecto.nombreProyecto }}</ion-text>
+      <ion-label><strong>Descripción:</strong></ion-label>
+      <ion-text>{{ proyecto.descripcion }}</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="info-card" *ngIf="selectedSegment === 'group'">
+    <ion-card-content>
+      <!-- Contenido del Grupo -->
+      <ion-label><strong>Código del Grupo:</strong></ion-label>
+      <ion-text>{{ grupo.codigoGrupo }}</ion-text>
+      <ion-label><strong>Nombre del Grupo:</strong></ion-label>
+      <ion-text>{{ grupo.nombreGrupo }}</ion-text>
+
+      <!-- Lista de integrantes del grupo -->
+      <ion-list>
+        <ion-item *ngFor="let integrante of grupo.integrantes">
+          <ion-label>{{ integrante.nombreIntegrante }}</ion-label>
+          <ion-button slot="end" fill="clear" (click)="expulsarIntegrante(integrante)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+
+      <!-- Agregar nuevo integrante -->
+      <ion-row class="add-member">
+        <ion-col>
+          <ion-item>
+            <ion-input placeholder="Buscar integrante" [(ngModel)]="nombreNuevoIntegrante"></ion-input>
+            <ion-button slot="end" fill="clear" (click)="agregarIntegrante()">
+              <ion-icon name="search"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

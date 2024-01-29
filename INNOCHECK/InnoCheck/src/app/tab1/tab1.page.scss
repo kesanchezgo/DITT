@@ -1,0 +1,40 @@
+ion-content {
+    --background: #FFFFFF; /* Color de fondo del contenido */
+  }
+  
+  .logo-container {
+    margin-top: 150px; /* Márgen superior */
+    margin-bottom: 50px; /* Márgen inferior */
+  }
+
+  .footer-container {
+    margin-top: 100px; 
+    margin-bottom: 20px; 
+  }
+  
+  .logo img {
+    max-width: 200px; /* Ajusta el tamaño del logo según tus necesidades */
+  }
+
+  .footer img {
+    max-width: 150px; /* Ajusta el tamaño del logo según tus necesidades */
+  }
+
+  .app-developed {
+    font-size: 11px;
+    margin-top: 5px; /* Márgen superior para el texto de "Desarrollado por DITT" */
+    color: #666; /* Color opcional para el texto */
+  }
+
+  .app-name {
+    font-size: 22px;
+    margin-top: 20px; /* Márgen superior para el nombre de la aplicación */
+    font-weight: bold;
+  }
+
+  .form-container {
+
+    margin-top: 30px; /* Márgen superior */
+   /*  margin-left: 80px; 
+    margin-right: 80px;  */
+  }

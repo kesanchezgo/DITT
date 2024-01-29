@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 3
@@ -14,4 +14,62 @@
   </ion-header>
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
+</ion-content>
+ -->
+
+ <ion-content class="ion-padding" color="light">
+
+  <ion-grid>
+    <!-- Encabezado -->
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-md="4" size-lg="2">
+        <div class="logo-container">
+          <div class="logo">
+            <img src="assets/inlab_c.png" alt="Logo de la aplicación">
+          </div>
+          <div class="app-name">
+            MIS PROYECTOS
+          </div>
+          
+          <div class="app-developed">
+            <span>PROYECTOS Y PRESTAMOS </span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Barra de búsqueda y botones -->
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <div class="search-container">
+          <ion-input placeholder="Buscar proyecto" [(ngModel)]="searchQuery" autocomplete="on"></ion-input>
+          <ion-button shape="round" color="primary" (click)="buscar()">
+            <ion-icon name="search"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Lista de proyectos -->
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <ion-list>
+          <ion-item *ngFor="let proyecto of proyectos">
+            <ion-label>
+              <h2>{{ proyecto.nombreProyecto }}</h2>
+              <h3>{{ proyecto.nombreLider }}</h3>
+              <p>{{ proyecto.descripcion.substring(0, 100) }}...</p>
+            </ion-label>
+            <ion-button shape="round" color="primary" (click)="verDetalles(proyecto)">
+              <ion-icon name="eye"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" color="primary" *ngIf="esLider(proyecto)" (click)="solicitarPrestamo(proyecto)">
+              <ion-icon name="briefcase"></ion-icon> 
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'dni-scanner-ocr',
     loadChildren: () => import('./pages/dni-scanner-ocr/dni-scanner-ocr.module').then( m => m.DniScannerOcrPageModule)
-  }
+  },
+  {
+    path: 'project-detail/:id',
+    loadChildren: () => import('./pages/project-detail/project-detail.module').then(m => m.ProjectDetailPageModule)
+  },
 ];
 @NgModule({
   imports: [

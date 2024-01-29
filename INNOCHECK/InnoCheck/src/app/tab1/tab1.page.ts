@@ -9,4 +9,16 @@ export class Tab1Page {
 
   constructor() {}
 
+  // ... otros métodos y propiedades
+
+  registrarEntrada() {
+    // Lógica para registrar entrada
+    console.log('Entrada registrada');
+  }
+
+  registrarSalida() {
+    // Lógica para registrar salida
+    console.log('Salida registrada');
+  }
+
 }

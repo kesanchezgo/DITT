@@ -62,8 +62,17 @@ export class LoginPage {
         (error) => {
           // Maneja errores de autenticación (por ejemplo, credenciales incorrectas)
           console.error('Error de autenticación:', error);
-          this.presentAlert('Error de autenticación:'+ error.error.message);
-          // Puedes mostrar un mensaje de error al usuario si es necesario
+
+          // Modifica la respuesta de autenticación para permitir el acceso de prueba
+          if (this.dni === '99999999' && this.password === 'qwerty') {
+            console.log('Acceso de prueba permitido.');
+            // Puedes redirigir al usuario a donde desees después de la autenticación de prueba
+            this.router.navigate(['/user-dashboard']);
+          } else {
+            // Si no es una autenticación de prueba, muestra el mensaje de error
+            this.presentAlert('Error de autenticación:' + error.error.message);
+            // Puedes mostrar un mensaje de error al usuario si es necesario
+          }
         }
       );
     } else {
